@@ -1,0 +1,74 @@
+:root {
+  --primary: #4f46e5;
+  --bg: #f5f7ff;
+  --card-bg: #ffffff;
+  --text: #111827;
+  --radius: 24px;
+  --shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+::selection{
+  background-color: transparent;
+}
+
+a{
+text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  width: 90%;
+  max-width: 700px;
+}
+
+.container {
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+}
+
+.container::after {
+  content: "";
+  display: block;
+  margin: 12px auto 0;
+  width: 40px;
+  height: 4px;
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* Mobile tweak */
+@media (max-width: 480px) {
+  .container {
+    font-size: 1.4rem;
+    padding: 30px 15px;
+  }
+}

@@ -1,0 +1,127 @@
+:root {
+  --glass-bg: rgba(255,255,255,0.18);
+  --glass-border: rgba(255,255,255,0.35);
+  --text: #ffffff;
+  --accent: #38bdf8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: url(images/background8.jpg) center / cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 16px;
+}
+
+/* BIG USER NAME */
+.username {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  text-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  animation: fadeDown 0.6s ease;
+}
+
+/* GLASS CONTAINER */
+.glass-card {
+  width: 90vw;
+  height: 90vh;
+  max-width: 1400px;
+
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border-radius: 32px;
+  border: 1px solid var(--glass-border);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(22px, 4vh, 45px);
+
+  animation: fadeUp 0.6s ease;
+}
+
+/* TITLE */
+.title {
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  letter-spacing: 4px;
+  color: var(--text);
+}
+
+/* TIMER */
+.time {
+  font-size: clamp(4.2rem, 10vw, 7.5rem);
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+/* CONTROLS */
+.controls {
+  display: flex;
+  gap: clamp(16px, 3vw, 32px);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.controls button {
+  width: clamp(64px, 10vw, 90px);
+  height: clamp(64px, 10vw, 90px);
+  border-radius: 50%;
+  border: none;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.28);
+  color: var(--text);
+  backdrop-filter: blur(6px);
+
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.controls button:hover {
+  transform: scale(1.12);
+  background: var(--accent);
+  color: #000;
+}
+
+/* LANDSCAPE SUPPORT */
+@media (max-height: 500px) {
+  .glass-card {
+    height: 88vh;
+    gap: 18px;
+  }
+  .time {
+    font-size: 3.6rem;
+  }
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HIDE VIDEO */
+#player {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
