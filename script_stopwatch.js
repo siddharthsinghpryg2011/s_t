@@ -1,6 +1,6 @@
 let name_you = localStorage.getItem("namer");
 let music_naam = localStorage.getItem("music_name");
-
+music_naam = "https://youtu.be/R1r9nLYcqBU"
 /* -------- NAME (ASK EVERY TIME) -------- */
 let userName = prompt("Enter your name:");
 
@@ -101,6 +101,7 @@ document.getElementById("mute").onclick = () => {
   muted = !muted;
   mute.textContent = muted ? "🔇" : "🔊";
 };
+
 
 
 
