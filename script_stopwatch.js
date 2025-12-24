@@ -1,10 +1,13 @@
+let name_you = localStorage.getItem("namer")
 /* -------- NAME (ASK + SAVE EVERY TIME) -------- */
 let userName = prompt("Enter your name:");
 if (userName !== null) {
-  localStorage.setItem("userName", userName);
+  name_you = userName
+  localStorage.setItem("namer", name_you);
+  // document.querySelector("username") 
 }
 document.getElementById("username").textContent =
-  userName ? `Hi, ${userName}` : "";
+  userName ? `Hi, ${userName}` : `Hi, ${name_you}`;
 
 /* -------- YOUTUBE LINK (ASK + SAVE EVERY TIME) -------- */
 let ytLink = prompt("Enter YouTube music link:");
