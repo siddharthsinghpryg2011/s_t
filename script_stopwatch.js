@@ -1,13 +1,17 @@
-let name_you = localStorage.getItem("namer")
-/* -------- NAME (ASK + SAVE EVERY TIME) -------- */
+let name_you = localStorage.getItem("namer");
+
+/* -------- NAME (ASK EVERY TIME) -------- */
 let userName = prompt("Enter your name:");
-if (userName !== null) {
-  name_you = userName
+
+if (userName !== null && userName.trim() !== "") {
+  // User entered a valid name
+  name_you = userName;
   localStorage.setItem("namer", name_you);
-  // document.querySelector("username") 
 }
+
+// Show name from localStorage if input was empty or cancelled
 document.getElementById("username").textContent =
-  userName ? `Hi, ${userName}` : `Hi, ${name_you}`;
+  name_you ? `Hi, ${name_you}` : "";
 
 /* -------- YOUTUBE LINK (ASK + SAVE EVERY TIME) -------- */
 let ytLink = prompt("Enter YouTube music link:");
@@ -92,3 +96,4 @@ document.getElementById("mute").onclick = () => {
   muted = !muted;
   mute.textContent = muted ? "🔇" : "🔊";
 };
+
