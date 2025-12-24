@@ -1,4 +1,5 @@
 let name_you = localStorage.getItem("namer");
+let music_naam = localStorage.getItem("music_name");
 
 /* -------- NAME (ASK EVERY TIME) -------- */
 let userName = prompt("Enter your name:");
@@ -15,13 +16,14 @@ document.getElementById("username").textContent =
 
 /* -------- YOUTUBE LINK (ASK + SAVE EVERY TIME) -------- */
 let ytLink = prompt("Enter YouTube music link:");
-if (ytLink !== null) {
-  localStorage.setItem("ytLink", ytLink);
+if (ytLink !== null && userName.trim() !== "") {
+  music_naam = ytLink;
+  localStorage.setItem("music_name", music_naam);
 }
 
 let videoId = ytLink
   ? ytLink.split("/").pop().split("?")[0]
-  : "";
+  : music_naam.split("/").pop().split("?")[0];
 
 /* -------- STOPWATCH -------- */
 let startTime = 0;
@@ -96,4 +98,5 @@ document.getElementById("mute").onclick = () => {
   muted = !muted;
   mute.textContent = muted ? "🔇" : "🔊";
 };
+
 
